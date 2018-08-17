@@ -1,0 +1,111 @@
+﻿
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+
+    <div class="content" ng-controller="AttachBranchEditController">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div>
+                        <form name="form" class="form-horizontal ng-pristine ng-valid col-md-12" novalidate unsaved-warning-form>
+                            <input type="hidden" data-description="This field is used for intergration testing" name="itest-Id" value="{{branch.BranchId}}" />
+                            <tabset>
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-laptop"></i> Attach Branch 
+                                    </tab-heading>
+
+                                    <div class="panel-body">
+
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <label>branch</label>
+                                                    <select style="border: none" name="branch" class="form-control col-sm-12" data-ng-model="branchManager.BranchId" required ng-class="{errorinput:form.branch.$invalid}"
+                                                            data-ng-options="i.BranchId as i.Name for i in branches">
+                                                        <option value="">Please select</option>
+                                                    </select>
+
+                                                    <span ng-show="form.branch.$invalid">
+                                                        <span ng-show="form.branch.$error.required" class="help-block error"><i class="fa fa-warning"></i>Branch is a required field.</span>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                           
+
+
+                                        <div class="hr-line-dashed"></div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-2">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageSave" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i>
+                                                    <span>Branch Manager has been Attached</span>
+                                                </div>
+                                                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageFailedSave" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Branch has not  been Attached</span>
+                                                </div>
+                                                <!--<div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageDeleted" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Branch has been Detached</span>
+                                                </div>
+                                                <div class="check-element sample-show-hide alert alert-danger animate-show" ng-show="showMessageDeleteFailed" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Branch has failed to be deleted</span>
+                                                </div>-->
+
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-sm-8 col-sm-offset-2">
+
+                                                <button class="btn btn-default" type="submit" ng-click="Cancel()">
+                                                    Back
+                                                </button>
+
+                                                <div class="btn-group">
+                                                    <button ng-click="Save(branchManager)" class="btn btn-info dropdown-toggle" ng-disabled="!form.$valid">
+                                                        Attach
+                                                    </button>
+                                                   
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+</div>
+
+                                </tab>
+
+
+
+                              
+                            </tabset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

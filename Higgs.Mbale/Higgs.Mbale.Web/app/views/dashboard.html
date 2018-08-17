@@ -1,0 +1,616 @@
+<!-- Header -->
+<div id="header" ng-include="'/app/views/_common/header.html?t=1'"></div>
+
+<!-- Navigation -->
+<aside id="menu" ng-include="'/app/views/_common/navigation.html?t=1d'"></aside>
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+    <div id="dasboard" class="content" animate-panel effect="zoomIn" ng-controller="NavController">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                            <h3 class="m-xs text-uppercase">
+                                Welcome to  MIGM  <span ng-if="loadingSpinner" class="loadingSpinner"><img src="/images/loading-bars.svg" /></span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="isAdmin">
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Supplies</h2>
+                            <!--<p class="font-bold text-success">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-science fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--rem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="supplies.list"><button class="btn btn-success btn-sm">All Supplies</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Stock</h2>
+                            <!-- <p class="font-bold text-info">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-global fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="stocks.list"><button class="btn btn-info btn-sm">All Stock</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Labourers</h2>
+                            <!--<p class="font-bold text-warning">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-display1 fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="casualWorkers.list"><button class="btn btn-warning btn-sm">All Casual Workers</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Reports</h2>
+                            <!--<p class="font-bold text-danger">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-airplay fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!-- Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <button class="btn btn-danger btn-sm">Action button</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="isAdmin">
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Suppliers</h2>
+                            <!--<p class="font-bold text-success">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-science fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--rem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="suppliers.list"><button class="btn btn-success btn-sm">All Suppliers</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Batches</h2>
+                            <!-- <p class="font-bold text-info">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-global fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="batches.list"><button class="btn btn-success btn-sm">All Batches</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Casual Workers</h2>
+                            <!--<p class="font-bold text-warning">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-display1 fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="casualWorkers.list"><button class="btn btn-warning btn-sm">All Casual Workers</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Branch Managers</h2>
+                            <!--<p class="font-bold text-danger">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-airplay fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!-- Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="branchmanagers.list">  <button class="btn btn-danger btn-sm">All Branch Managers </button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="isAdmin">
+
+            <div class="col-md-3">
+
+                <div class="hpanel hbggreen">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="transactions.list">   <h3>Transactions</h3> </a>
+                            <!--<p class="text-big font-light">
+                                20
+                            </p>
+                            <small>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </small>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="hpanel hbgblue">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="creditors.list">  <h3>Creditors</h3></a>
+                            <!--<p class="text-big font-light">
+                                160
+                            </p>
+                            <small>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </small>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel hbgyellow">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="debtors.list"> <h3>Debtors</h3> </a>
+                            <!--<p class="text-big font-light">
+                                750
+                            </p>
+                            <small>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </small>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel hbgred">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="customers.list"><h3>Customers</h3></a>
+                            <!--<p class="text-big font-light">
+                                0,43
+                            </p>
+                            <small>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </small>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="isAdmin">
+
+            <div class="col-md-3">
+                <div class="hpanel  hbgred">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="activities.list"><h3>Activities</h3></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="hpanel hbgyellow">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="transactionSubTypes.list"> <h3>Transaction SubTypes</h3> </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="hpanel hbgblue">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="requistions.list">  <h3>Requistions</h3></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="hpanel hbgnavyblue">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <a style="color:white" ui-sref="reports.transactionlist">  <h3>Transaction Reports</h3> </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" ng-show="isSupplier">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Supplies</h2>
+                            <!--<p class="font-bold text-success">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-science fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--rem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a href="#/supplies/{{user.Id}}"><button class="btn btn-success btn-sm">All Supplies</button></>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> My Transactions</h2>
+                            <!-- <p class="font-bold text-info">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-global fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a href="#/accounttransactionactivities/{{user.Id}} "><button class=" btn btn-info btn-sm">All Transaction Activities</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Labourers</h2>
+                            <!--<p class="font-bold text-warning">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-display1 fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a ui-sref="casualWorkers.list"><button class="btn btn-warning btn-sm">All Casual Workers</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs">Reports</h2>
+                            <!--<p class="font-bold text-danger">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-airplay fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!-- Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <button class="btn btn-danger btn-sm">Action button</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="isCustomer">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> Orders</h2>
+                           
+                            <div class="m">
+                                <i class="pe-7s-science fa-5x"></i>
+                            </div>
+                           
+                            <a href="#/orders/{{user.Id}}"><button class="btn btn-success btn-sm">My Orders</button></>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h2 class="m-b-xs"> My Transactions</h2>
+                            <!-- <p class="font-bold text-info">Lorem ipsum</p>-->
+                            <div class="m">
+                                <i class="pe-7s-global fa-5x"></i>
+                            </div>
+                            <p class="small">
+                                <!--Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.-->
+                            </p>
+                            <a href="#/accounttransactionactivities/{{user.Id}} "><button class=" btn btn-info btn-sm">All Transaction Activities</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+
+       <!--{{retrievedBranchId}}
+        
+        <div ng-show="isBranchManager" class="row" ng-controller="BranchDashBoardController" ng-init="init({{retreivedBranchId}})">
+            <div ng-show="isBranchManager" class="row" ng-controller="BranchDashBoardController">
+                <div class="col-lg-12">
+
+                    {{branchId}}
+                    <div class="clear0"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                        <h3 class="m-xs text-uppercase">
+                                            {{branch.Name}} <span ng-if="loadingSpinner" class="loadingSpinner"><img src="/images/loading-bars.svg" /></span>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <a class="btn btn-info btn-sm center-block"><i class="fa fa-bitbucket-square"></i> {{branch.Name}}</a>
+
+                    <span ng-if="loadingSpinner" class="loadingSpinner">
+                        <img src="/images/loading-bars.svg" width="45" height="45" /> Loading...
+                    </span>
+
+                    <div class="clear10"></div>
+                    <div class="clear10"></div>
+                    <div class="clear10"></div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <h2 class="m-b-xs"> Supplies</h2>
+                                        
+                                        <div class="m">
+                                            <i class="pe-7s-science fa-5x"></i>
+                                        </div>
+                                        <p class="small">
+                                            
+                                        </p>
+
+                                        <a href="#/supplies/{{branch.BranchId}}"><button class="btn btn-success btn-sm">Branch Supplies</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <h2 class="m-b-xs"> Stock</h2>
+                                        
+                                        <div class="m">
+                                            <i class="pe-7s-global fa-5x"></i>
+                                        </div>
+                                        <p class="small">
+                                           
+                                        </p>
+                                        <button class="btn btn-info btn-sm">Action button</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <h2 class="m-b-xs">Casual Workers</h2>
+                                        
+                                        <div class="m">
+                                            <i class="pe-7s-display1 fa-5x"></i>
+                                        </div>
+
+                                        <a href="#/casualWorkers/{{branch.BranchId}}"> <button class="btn btn-warning btn-sm">Branch CasualWorkers</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <h2 class="m-b-xs">Orders</h2>
+                                      
+                                        <div class="m">
+                                            <i class="pe-7s-airplay fa-5x"></i>
+                                        </div>
+                                        <p class="small">
+                                            
+                                        </p>
+                                        <a href="#/orders/{{branch.BranchId}}">  <button class="btn btn-danger btn-sm">Branch Orders</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="stats-title pull-left">
+                                        <h4>Creditors</h4>
+                                    </div>
+                                    <div class="stats-icon pull-right">
+                                        <i class="pe-7s-monitor fa-4x"></i>
+                                    </div>
+                                    <div class="m-t-xl">
+                                        
+                                        <a href="#/creditors/{{branch.BranchId}}"><button class="btn btn-danger btn-sm">Branch Creditors</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="stats-title pull-left">
+                                        <h4>Debtors</h4>
+                                    </div>
+                                    <div class="stats-icon pull-right">
+                                        <i class="pe-7s-shuffle fa-4x"></i>
+                                    </div>
+                                    <div class="m-t-xl">
+                                        
+                                        <a href="#/debtors/{{branch.BranchId}}"><button class="btn btn-success btn-sm">Branch Debtors</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="stats-title pull-left">
+                                        <h4>Store</h4>
+                                    </div>
+                                    <div class="stats-icon pull-right">
+                                        <i class="pe-7s-ticket fa-4x"></i>
+                                    </div>
+                                    <div class="m-t-xl">
+                                        
+                                        <a href="#/stores/branch/{{branch.BranchId}}"><button class="btn btn-info btn-sm">Branch Store</button></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="stats-title pull-left">
+                                        <h4>Deliveries</h4>
+                                    </div>
+                                    <div class="stats-icon pull-right">
+                                        <i class="pe-7s-attention fa-4x"></i>
+                                    </div>
+                                    <div class="m-t-xl">
+                                      
+                                        <a href="#/deliveries/branch/{{branch.BranchId}}"><button class="btn btn-warning2 btn-sm">Branch Deliveries</button></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="hpanel hbggreen">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <a style="color:white" href="#/requistions/branch/{{branch.BranchId}}">
+                                            <h3>Requistions</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel hbgblue">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <a style="color:white" href="#/orders/branch/{{branch.BranchId}}">
+                                            <h3>Orders</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel hbgyellow">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <a style="color:white" href="#/batches/branch/{{branch.BranchId}}">
+                                            <h3>Batches</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hpanel hbgred">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                        <a style="color:white" href="#/transactions/branch/{{branch.BranchId}}">
+                                            <h3>Transactions</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+        -->
+
+</div>

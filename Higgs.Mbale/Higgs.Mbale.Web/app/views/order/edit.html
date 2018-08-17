@@ -1,0 +1,314 @@
+﻿
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+
+    <div class="content" ng-controller="OrderEditController">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div>
+                        <form name="form" class="form-horizontal ng-pristine ng-valid col-md-12" novalidate unsaved-warning-form>
+                            <input type="hidden" data-description="This field is used for intergration testing" name="itest-Id" value="{{order.OrderId}}" />
+                            <tabset>
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-laptop"></i> Edit Order
+                                    </tab-heading>
+
+                                    <div class="panel-body">  
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12" ng-hide="order.ProductId==1">
+                                                    <label>Quantity</label>
+                                                    <input ng-readonly="readOnly" name="amount" class="form-control" ng-model="order.Amount" ng-pattern="/^\-?\d+((\.)\d+)?$/"  ng-class="{ errorinput: form.amount.$invalid }">
+                                                    <span ng-show="form.amount.$invalid">
+                                                        
+                                                        <span ng-show="form.amount.$error.pattern" class="help-block error"><i class="fa fa-warning"></i> Invalid formart, amount should be double or number</span>
+                                                        <span ng-show="form.amount.$error.maxlength" class="help-block error"><i class="fa fa-warning"></i> Name should not exceed 500 characters.</span>
+                                                    </span>
+                                                </div>
+                                               
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <label>Status</label>
+                                                    <select style="border: none" name="status" class="form-control col-sm-12" data-ng-model="order.StatusId" required ng-class="{errorinput:form.status.$invalid}"
+                                                            data-ng-options="i.StatusId as i.Name for i in statuses">
+                                                        <option value="">Please select</option>
+                                                    </select>
+
+                                                    <span ng-show="form.status.$invalid">
+                                                        <span ng-show="form.status.$error.required" class="help-block error"><i class="fa fa-warning"></i>status is a required field.</span>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">                                            
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <label>Product</label>
+                                                    <select style="border: none" name="product" class="form-control col-sm-12" data-ng-model="order.ProductId" required ng-class="{errorinput:form.product.$invalid}"
+                                                            data-ng-options="i.ProductId as i.Name for i in products">
+                                                        <option value="">Please select</option>
+                                                    </select>
+
+                                                    <span ng-show="form.product.$invalid">
+                                                        <span ng-show="form.product.$error.required" class="help-block error"><i class="fa fa-warning"></i>Product is a required field.</span>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <label>branch</label>
+                                                    <select style="border: none" name="branch" class="form-control col-sm-12" data-ng-model="order.BranchId" required ng-class="{errorinput:form.branch.$invalid}"
+                                                            data-ng-options="i.BranchId as i.Name for i in branches">
+                                                        <option value="">Please select</option>
+                                                    </select>
+
+                                                    <span ng-show="form.branch.$invalid">
+                                                        <span ng-show="form.branch.$error.required" class="help-block error"><i class="fa fa-warning"></i>Branch is a required field.</span>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                           
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <label>Order Number</label>
+                                                    <input ng-readonly="readOnly" name="name" class="form-control" ng-model="order.Name" ng-maxlength="500" required ng-class="{ errorinput: form.name.$invalid }">
+                                                    <span ng-show="form.name.$invalid">
+                                                        <span ng-show="form.name.$error.required" class="help-block error"><i class="fa fa-warning"></i> This is a required field.</span>
+
+                                                        <span ng-show="form.name.$error.maxlength" class="help-block error"><i class="fa fa-warning"></i> Order Number should not exceed 500 characters.</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row" ng-hide="order.ProductId !=1" >
+                                                <div class="col-sm-12 col-md-12">
+                                                    Grade: 
+                                                </div>   
+                                            <div ng-if="orderId==0 ||order.Grades.length==0 ">
+                                                <div ng-repeat="grade in grades" class="checkbox col-md-3 col-sm-12">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <input id="grade_{{grade.GradeId}}" type="checkbox" name="grade_{{grade.GradeId}}"
+                                                               checklist-model="selectedGrades"
+                                                               checklist-value="grade">
+                                                        <label for="grade-{{grade.GradeId}}"> {{grade.Value}} </label>
+
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th width="40%">Value </th>
+                                                                        <th width="60%">Number Of Bags</th>
+                                                                    </tr>
+                                                                    <tr ng-repeat="x in grade.Denominations">
+                                                                        <td width="40%"><p> {{ x.Value }} Kg</p></td>
+                                                                        <td width="60%">
+                                                                            <input name="amount{{x.DenominationId}}" class="form-controlx" ng-model="x.Quantity" ng-pattern="/^\-?\d+((\.)\d+)?$/" ng-class="{ errorinput: form.amount{{x.DenominationId}}.$invalid }" ng-disabled="">
+                                                                            <span ng-show="form.amount{{x.DenominationId}}.$invalid">
+                                                                                <span ng-show="form.amount{{x.DenominationId}}.$error.pattern" class="help-block error"><i class="fa fa-warning"></i> Invalid formart, amount should be double or number</span>
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div ng-if="order.OrderId!=0">
+                                                <div ng-repeat="grade in order.Grades" class="checkbox col-md-3 col-sm-12">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <input id="grade_{{grade.GradeId}}" type="checkbox" name="grade_{{grade.GradeId}}"
+                                                               checklist-model="order.Grades"
+                                                               checklist-value="grade">
+                                                        <label for="grade-{{grade.GradeId}}"> {{grade.Value}} </label>
+
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th width="40%">Value </th>
+                                                                        <th width="60%">Number Of Bags</th>
+                                                                    </tr>
+                                                                    <tr ng-repeat="x in grade.Denominations">
+                                                                        <td width="40%"><p> {{ x.Value }} Kg</p></td>
+                                                                        <td width="60%">
+                                                                            <input name="amount{{x.DenominationId}}" class="form-controlx" ng-model="x.Quantity" ng-pattern="/^\-?\d+((\.)\d+)?$/" ng-class="{ errorinput: form.amount{{x.DenominationId}}.$invalid }" ng-disabled="">
+                                                                            <span ng-show="form.amount{{x.DenominationId}}.$invalid">
+                                                                                <span ng-show="form.amount{{x.DenominationId}}.$error.pattern" class="help-block error"><i class="fa fa-warning"></i> Invalid formart, amount should be double or number</span>
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <br />
+                                                <div class="hr-line-dashed"></div>
+
+                                            </div>
+
+
+
+                                        <div class="row">
+                                           
+
+                                            <div class="col-sm-12" style="padding-left: 0px">
+                                           
+                                              
+                                        <div class="hr-line-dashed"></div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-2">
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageSave" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i>
+                                                    <span>Order has been saved</span>
+                                                </div>
+                                                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageFailedSave" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Order has not  been saved</span>
+                                                </div>
+                                                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageDeleted" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Order has been deleted</span>
+                                                </div>
+                                                <div class="check-element sample-show-hide alert alert-danger animate-show" ng-show="showMessageDeleteFailed" style="clear:both;">
+                                                    <i class="fa-fw fa fa-check"></i><span>Order has failed to be deleted</span>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="form-group">
+                                            <div class="col-sm-8 col-sm-offset-2">
+
+                                                <button class="btn btn-default" type="submit" ng-click="Cancel()">
+                                                    Back
+                                                </button>
+
+                                                <div class="btn-group">
+                                                    <button ng-click="Save(order)" class="btn btn-info dropdown-toggle" ng-disabled="!form.$valid">
+                                                        Save
+                                                    </button>
+                                                    <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+
+                                                        <li ng-show="order.OrderId > 0">
+                                                            <a ng-really-message='Are you sure you want to delete this Order' ng-disabled="!form.$valid" class="btn text-align-left" href="" ng-really-click="Delete(order.OrderId)" data-original-title="Delete">Delete</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                  </div>
+                                        </div>
+                                        
+</tab>                    
+
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-desktop"></i> Properties
+                                    </tab-heading>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="30%">
+                                                    <span class="font-bold">Id</span>
+                                                    <br />
+                                                    <span class="font-trans">Id of Order</span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-normal">{{order.OrderId}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="font-bold"> Created By</span>
+                                                    <br />
+                                                    <span class="font-trans">Original author</span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-normal">{{order.CreatedBy}} </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="font-bold"> Created on</span>
+                                                    <br />
+                                                    <span class="font-trans">Date Time Order created</span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-normal">{{order.CreatedOn|date:"yyyy-MM-dd hh:mm" }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="font-bold">Last edited by</span>
+                                                    <br />
+                                                    <span class="font-trans">Editor who last edited  this Order </span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-normal">{{order.UpdatedBy}}  </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="font-bold"> Last edited</span>
+                                                    <br />
+                                                    <span class="font-trans">Date Time this Order was last edited</span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-normal">{{order.Timestamp | date:"yyyy-MM-dd hh:mm"}}</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </tab>
+                            </tabset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

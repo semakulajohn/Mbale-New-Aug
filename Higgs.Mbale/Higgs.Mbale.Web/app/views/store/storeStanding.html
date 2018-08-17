@@ -1,0 +1,102 @@
+﻿
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+
+    <div class="content" ng-controller="StoreFlourStandingController">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div>
+                        <form name="form" class="form-horizontal ng-pristine ng-valid col-md-12" novalidate unsaved-warning-form>
+                              <tabset>
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-laptop"></i> Store Flour Standing
+                                    </tab-heading>
+
+                                    <div class="panel-body">
+
+
+                                        <!--<div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Store Name</h5>
+                                                    <p>{{storeGradeSize.StoreName}}</p>
+
+                                                </div>
+                                            </div>
+
+                                           
+                                        </div>-->
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <h5> Maize Flour </h5>
+                                            </div>
+                                            <!--<div ng-repeat="grade in storeGradeSize.StoreSizeGrades|limitTo:6" class="col-md-3 col-sm-12">-->
+                                                <div ng-repeat="grade in storeGradeSize.StoreSizeGrades" class="col-md-3 col-sm-12">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <h3> {{grade.GradeValue}}</h3>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th width="25%">Value </th>
+                                                                        <th width="25%">Quantity</th>
+
+                                                                    </tr>
+                                                                    <!--<tr ng-repeat="x in grade.Grades">-->
+                                                                    <tr>
+                                                                        <td width="40%"><p> {{ grade.SizeValue }} Kg</p></td>
+                                                                        <td width="60%">
+                                                                            <p>{{grade.Quantity}}</p>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+ 
+                                        </div>
+
+                                                                              <br />
+    
+
+                                        <div class="row">
+
+
+                                            <div class="col-sm-12" style="padding-left: 0px">
+
+
+                                                <div class="hr-line-dashed"></div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </tab>
+
+
+                            </tabset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

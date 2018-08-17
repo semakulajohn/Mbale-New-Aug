@@ -1,0 +1,182 @@
+﻿
+
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+    <div ng-controller="ReportSupplyController">
+
+
+        <div class="clear0"></div>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">View Supplies</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button class="btn btn-primary btn-rounded" ng-click="TodaysSupplies()">Today</button>
+
+                        <button class="btn btn-mint btn-rounded" ng-click="WeeksSupplies()">This Week</button>
+                        <button class="btn btn-success btn-rounded" ng-click="SuppliesForThisMonth()">This Month</button>
+                        &nbsp;&nbsp;&nbsp;
+
+                        <span ng-show="data.length > 0">
+                            <span class="fa-hover"><a href="" ng-click="DownloadExcelFile()"><i class="fa fa-download"></i> Download report</a></span>
+                        </span>
+
+
+                        <hr />
+
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Search  Supplies by date</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <table width="500">
+                                        <tbody>
+                                            <tr>
+                                                <td width="40%">
+                                                    <span class="header-search">
+                                                        From: &nbsp;&nbsp;  <input placeholder="yyyy-mm-dd" name="fromDate" kendo-date-picker="" class="" ng-model="supply.FromDate" k-format="'yyyy-MM-dd'" ng-pattern="/^(199\d)|([2-9]\d{3})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/">
+
+                                                        <span ng-show=" form.fromDate.$invalid">
+                                                            <span ng-show="form.fromDate.$error.required" class="help-block error margin-bottom-00 "><i class="fa fa-warning"></i> From date is required.</span>
+                                                            <span ng-show="form.fromDate.$error.pattern" class="help-block error margin-bottom-00 "><i class="fa fa-warning"></i> Invalid date format, should be yyyy-mm-dd.</span>
+                                                        </span>
+                                                    </span>
+                                                </td>
+                                                <td>&nbsp;&nbsp;&nbsp;</td>
+                                                <td width="40%">
+                                                    <span class="header-search">
+                                                        To: &nbsp;&nbsp;  <input placeholder="yyyy-mm-dd" name="toDate" kendo-date-picker="" class="" ng-model="supply.ToDate" k-format="'yyyy-MM-dd'" ng-pattern="/^(199\d)|([2-9]\d{3})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/">
+
+                                                        <span ng-show=" form.toDate.$invalid">
+                                                            <span ng-show="form.toDate.$error.required" class="help-block error margin-bottom-00 "><i class="fa fa-warning"></i> To date is required.</span>
+                                                            <span ng-show="form.toDate.$error.pattern" class="help-block error margin-bottom-00 "><i class="fa fa-warning"></i> Invalid date format, should be yyyy-mm-dd.</span>
+                                                        </span>
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn btn-primary" ng-click="SearchSupplies(supply)">Search</button></td>
+                                            </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                        <div ng-hide="data.length > 0">
+                            <div class="col-md-4">
+                                <div class="error">
+                                    No Supplies found for that period.
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="data.length > 0">
+                            <table ng-table="tableParams" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable" ng-class="{
+                                        'sort-asc': tableParams.isSortBy('SupplyNumber', 'asc'),
+                                        'sort-desc': tableParams.isSortBy('SupplyNumber', 'desc')
+                                        }"
+                                            ng-click="tableParams.sorting({'SupplyNumber' : tableParams.isSortBy('SupplyNumber', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>SupplyNumber</div>
+                                        </th>
+                                        <th class="sortable" ng-class="{
+                                        'sort-asc': tableParams.isSortBy('Quantity', 'asc'),
+                                        'sort-desc': tableParams.isSortBy('Quantity', 'desc')
+                                        }"
+                                            ng-click="tableParams.sorting({'Quantity' : tableParams.isSortBy('Quantity', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Quantity</div>
+                                        </th>
+                                        <th class="sortable" ng-class="{
+                                        'sort-asc': tableParams.isSortBy('Price', 'asc'),
+                                        'sort-desc': tableParams.isSortBy('Price', 'desc')
+                                        }"
+                                            ng-click="tableParams.sorting({'Price' : tableParams.isSortBy('Price', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Price</div>
+                                        </th>
+                                        <th class="sortable"
+                                            ng-click="tableParams.sorting({'Amount' : tableParams.isSortBy('Amount', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Amount</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('BranchName', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('BranchName', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'BranchName' : tableParams.isSortBy('BranchName', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Branch</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('SupplyDate', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('SupplyDate', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'SupplyDate' : tableParams.isSortBy('SupplyDate', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>SupplyDate</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('TruckNumber', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('TruckNumber', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'TruckNumber' : tableParams.isSortBy('TruckNumber', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>TruckNumber</div>
+                                        </th>
+
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('SupplierName', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('SupplierName', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'SupplierName' : tableParams.isSortBy('SupplierName', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>SupplierName</div>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="supply in data">
+                                        <td width="3%">{{supply.SupplyNumber}}</td>
+                                        <td width="10%">{{supply.Quantity}}</td>
+                                        <td width="10%">{{supply.Price}}</td>
+                                        <td width="20%">{{supply.Amount}}</td>
+                                        <td width="10%"> {{supply.BranchName}}</td>
+                                        <td width="12%">{{ supply.SupplyDate | date:"yyyy-MM-dd hh:mm" }}</td>
+                                        <td width="12%">{{ supply.TruckNumber }}</td>
+                                        <td width="15%">{{ supply.SupplierName }}</td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                      
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

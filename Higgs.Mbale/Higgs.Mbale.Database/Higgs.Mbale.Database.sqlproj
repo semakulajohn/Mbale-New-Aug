@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Higgs.Mbale.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{6ac90de8-4bb6-44e8-9637-b5670388a1d5}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Higgs.Mbale.Database</RootNamespace>
+    <AssemblyName>Higgs.Mbale.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Schemas" />
+    <Folder Include="Schema Objects\Schemas\dbo" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\AspNet" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AspNet\AspNetRoles.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AspNet\AspNetUserClaims.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AspNet\AspNetUserLogins.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AspNet\AspNetUserRoles.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AspNet\AspNetUsers.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Activity.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ActivityBranch.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Batch.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BatchSupply.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Branch.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BranchSector.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CasualWorker.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Delivery.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Document.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ExtensionType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Grade.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Inventory.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\MachineRepair.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Media.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\MediaType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Order.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Product.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Sector.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Size.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Status.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Store.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\WeightNote.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\WeightNoteValue.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Stock.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StockSize.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Transaction.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TransactionType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\TransactionSubType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BatchProduct.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Requistion.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Supply.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BatchGrade.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OrderGrade.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AccountTransactionActivity.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OrderSize.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\UserBranchManager.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\PaymentMode.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ActivityBatchCasual.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_CasualWorker_RelatedData_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Product_RelatedData_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Branch_And_RelatedData_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Requistion_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Supply_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Batch_RelatedData_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Activity_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Transaction_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_TransactionSubType_RelatedData_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_MachineRepair_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Delivery_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Store_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Inventory_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_Order_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Creditor.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Debtor.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OrderGradeSize.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BatchGradeSize.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\FactoryExpense.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\LabourCost.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StockGradeSize.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StockGrade.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_FactoryExpense_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_LabourCost_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CasualActivity.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_CasualActivity_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\OtherExpense.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Mark_OtherExpense_AsDeleted.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BatchOutPut.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\UpdateSupplyWithCompletedStatus.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StockProduct.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\UserBranch.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StoreStock.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\SupplyStock.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StoreMaizeStock.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\StoreStockGradeSize.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Higgs.Mbale.Database.publish.xml" />
+    <None Include="Higgs_1.Mbale.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Higgs.Mbale.Database.refactorlog" />
+  </ItemGroup>
+</Project>

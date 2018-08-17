@@ -1,0 +1,429 @@
+﻿
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+
+    <div class="content" ng-controller="BatchDetailController">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div>
+                        <form name="form" class="form-horizontal ng-pristine ng-valid col-md-12" novalidate unsaved-warning-form>
+                            <input type="hidden" data-description="This field is used for intergration testing" name="itest-Id" value="{{batch.BatchId}}" />
+                            <tabset>
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-laptop"></i> Batch Detail
+                                    </tab-heading>
+
+                                    <div class="panel-body">
+
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Batch Number</h5>
+                                                    <p>{{batch.Name}}</p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>branch</h5>
+                                                    <p>{{batch.BranchName}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Machine Repairs</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="70%">Description </th>
+
+                                                                    <th width="30%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="repair in batch.MachineRepairs">
+                                                                    <td width="70%"><p> {{repair.Description }}</p></td>
+                                                                    <td width="30%">
+                                                                        <p>{{repair.Amount}}</p>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total</th>
+                                                                    <th>{{batch.TotalMachineCost}}</th>
+                                                                </tr>
+                                                                </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Total Factory Expense Cost</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <th width="50%">Factory Expense cost</th>
+                                                                    <th width="50%">{{batch.TotalFactoryExpenseCost}}</th>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Maize</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="33%">Supplier Details </th>
+                                                                    <th width="20%">KGs</th>
+                                                                    <th width="20%">Rate</th>
+                                                                    <th width="27%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="supply in batch.Supplies">
+                                                                    <td width="33%"><p> {{ supply.SupplierName }}</p></td>
+                                                                    <td width="20%">
+                                                                        <p>{{supply.Quantity}}</p>
+                                                                    </td>
+                                                                    <td width="20%"><p>{{supply.Price}}</p></td>
+                                                                    <td width="27%"><p>{{supply.Amount}}</p></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total</th>
+                                                                    <th>{{batch.Quantity}}</th>
+                                                                    <th></th>
+                                                                    <th>{{batch.TotalSupplyAmount}}</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Production OutPut</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="33%">Product </th>
+                                                                    <th width="33%">KGs</th>
+                                                                    <th width="33%">Percentage</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="33%"><p>Maize Flour</p></td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.FlourOutPut}}</p>
+                                                                    </td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.FlourPercentage}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="33%"><p>Maize Brand</p></td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.BrandOutPut}}</p>
+                                                                    </td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.BrandPercentage}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="33%"><p>Loss</p></td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.Loss}}</p>
+                                                                    </td>
+                                                                    <td width="33%">
+                                                                        <p>{{batch.LossPercentage}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                               
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Milling Charge</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="33%">Quantity </th>
+                                                                    <th width="33%">Rate</th>
+                                                                    <th width="33%">Amount</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    
+                                                                    <td width="33%">
+                                                                        <p>{{batch.FlourOutPut}}</p>
+                                                                    </td>
+                                                                
+                                                                   <td width="33%">
+                                                                        <p>{{batch.BranchMillingChargeRate}}</p>
+                                                                    </td>
+                                                                                                                          
+                                                                   
+                                                                    <td width="33%">
+                                                                        <p>{{batch.MillingCharge}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Factory Expenses</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="70%">Description </th>
+                                                                                                                                      
+                                                                    <th width="30%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="factoryExpense in batch.FactoryExpenses">
+                                                                    <td width="70%"><p> {{factoryExpense.Description }}</p></td>
+                                                                    <td width="30%">
+                                                                        <p>{{factoryExpense.Amount}}</p>
+                                                                    </td>
+                                                                    
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total</th>
+                                                                   <th>{{batch.FactoryExpenseCost}}</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Other Expenses</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="65%">Description </th>
+
+                                                                    <th width="25%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="otherExpense in batch.OtherExpenses">
+                                                                    <td width="70%"><p> {{otherExpense.Description }}</p></td>
+                                                                    <td width="30%">
+                                                                        <p>{{otherExpense.Amount}}</p>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th width="10%">Total</th>
+                                                                    <th width="10%">{{batch.TotalOtherExpenseCost}}</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Buvera Cost</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    
+                                                                    <th width="33%">Total Buvera Cost</th>
+                                                                    <th width="33%">{{batch.TotalBuveraCost}}</th>
+                                                                </tr>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                           
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Labour Costs</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="50%">Activity </th>
+
+                                                                    <th width="15%">Quantity</th>
+                                                                    <th width="10%">Rate</th>
+                                                                    <th width="25%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="labour in batch.LabourCosts">
+                                                                    <td width="50%"><p> {{labour.ActivityName }}</p></td>
+                                                                    <td width="15%">
+                                                                        <p>{{labour.Quantity}}</p>
+                                                                    </td>
+                                                                    <td width="10%"><p>{{labour.Rate}}</p></td>
+                                                                    <td width="25%">
+                                                                    <p>{{labour.Amount}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th>{{batch.TotalLabourCosts}}</th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Milling Charge Balance</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <th width="33%">Milling Charge Balance</th>
+                                                                    <th width="33%">{{batch.MillingChargeBalance}}</th>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Total Production Cost</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <th width="33%">Production Cost</th>
+                                                                    <th width="33%">{{batch.TotalProductionCost}}</th>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                              <h5> Buvera </h5>
+                                            </div>
+                                            <div ng-repeat="grade in batch.Grades" class="col-md-3 col-sm-12">
+                                                <div class="col-sm-12 col-md-12">
+                                                    <h3> {{grade.Value}}</h3>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th width="25%">Value </th>
+                                                                    <th width="25%">Quantity</th>
+                                                                    <th width="25%">Rate</th>
+                                                                    <th width="25%">Amount</th>
+                                                                </tr>
+                                                                <tr ng-repeat="x in grade.Denominations">
+                                                                    <td width="40%"><p> {{ x.Value }} Kg</p></td>
+                                                                    <td width="60%">
+                                                                        <p>{{x.Quantity}}</p>
+                                                                    </td>
+                                                                    <td width="25%">{{x.Rate}}</td>
+                                                                    <td width="25%">{{x.Amount}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            
+                                            <div class="hr-line-dashed"></div>
+
+                                        </div>
+
+
+
+                                        <div class="row">
+
+
+                                            <div class="col-sm-12" style="padding-left: 0px">
+
+
+                                                <div class="hr-line-dashed"></div>
+
+
+                                               
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </tab>
+
+                               
+                            </tabset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,123 @@
+﻿
+
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+    <div ng-controller="ReportTransactionController">
+
+
+        <div class="clear0"></div>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">View Transactions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button class="btn btn-primary btn-rounded" ng-click="TodaysTransactions()">Today</button>
+                       
+                        <button class="btn btn-mint btn-rounded" ng-click="WeeksTransactions()">This Week</button>
+                        <button class="btn btn-success btn-rounded" ng-click="TransactionsForThisMonth()">This Month</button>
+                        &nbsp;&nbsp;&nbsp;
+
+                        <span ng-show="data.length > 0">
+                            <span class="fa-hover"><a href="" ng-click="DownloadExcelFile()"><i class="fa fa-download"></i> Download report</a></span>
+                        </span>
+
+
+                        <hr />
+
+                        <div ng-hide="data.length > 0">
+                            <div class="col-md-4">
+                                <div class="error">
+                                    No Transactions found for that period.
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="data.length > 0">
+                            <table ng-table="tableParams" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable" ng-class="{
+                                        'sort-asc': tableParams.isSortBy('TransactionId', 'asc'),
+                                        'sort-desc': tableParams.isSortBy('TransactionId', 'desc')
+                                        }"
+                                            ng-click="tableParams.sorting({'TransactionId' : tableParams.isSortBy('TransactionId', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>TransactionId</div>
+                                        </th>
+
+                                        <th class="sortable" 
+                                            ng-click="tableParams.sorting({'Amount' : tableParams.isSortBy('Amount', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Amount</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('BranchName', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('BranchName', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'BranchName' : tableParams.isSortBy('BranchName', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Branch</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('CreatedOn', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('CreatedOn', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'CreatedOn' : tableParams.isSortBy('CreatedOn', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Created On</div>
+                                        </th>
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('TransactionTypeNamee', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('TransactionTypeName', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'TransactionTypeName' : tableParams.isSortBy('TransactionTypeName', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>Transaction Type</div>
+                                        </th>
+
+
+                                        <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('TransactionSubTypeName', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('TransactionSubTypeName', 'desc')
+                                    }"
+                                            ng-click="tableParams.sorting({'TransactionSubTypeName' : tableParams.isSortBy('TransactionSubTypeName', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                            <div>TransactionSubTypeName</div>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="transaction in data">
+                                        <td width="3%">{{transaction.TransactionId}}</td>
+                                        <td width="20%">{{transaction.Amount}}</td>
+                                        <td width="10%"> {{transaction.BranchName}}</td>
+                                        <td width="12%">{{ transaction.CreatedOn | date:"yyyy-MM-dd hh:mm" }}</td>
+                                        <td width="12%">{{ transaction.TransactionTypeName }}</td>
+                                        <td width="15%">{{ transaction.TransactionSubTypeName }}</td>
+                                       
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                   
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+

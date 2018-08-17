@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AAC90AE-3354-4F67-9E4A-68899EC7C5BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Higgs.Mbale.DTO</RootNamespace>
+    <AssemblyName>Higgs.Mbale.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountTransactionActivityDTO.cs" />
+    <Compile Include="ActivityBatchCasualDTO.cs" />
+    <Compile Include="ActivityDTO.cs" />
+    <Compile Include="AspNetUserDTO.cs" />
+    <Compile Include="BatchDTO.cs" />
+    <Compile Include="BatchGradeDTO.cs" />
+    <Compile Include="BatchGradeSizeDTO.cs" />
+    <Compile Include="BatchOutPutDTO.cs" />
+    <Compile Include="BatchProductDTO.cs" />
+    <Compile Include="BatchSupplyDTO.cs" />
+    <Compile Include="BranchDTO.cs" />
+    <Compile Include="CasualActivityDTO.cs" />
+    <Compile Include="CasualWorkerDTO.cs" />
+    <Compile Include="CreditorDTO.cs" />
+    <Compile Include="DebtorDTO.cs" />
+    <Compile Include="DeliveryDTO.cs" />
+    <Compile Include="DocumentDTO.cs" />
+    <Compile Include="ExpenseDTO.cs" />
+    <Compile Include="FactoryExpenseDTO.cs" />
+    <Compile Include="GradeDTO.cs" />
+    <Compile Include="IncomeDTO.cs" />
+    <Compile Include="InventoryDTO.cs" />
+    <Compile Include="LabourCostDTO.cs" />
+    <Compile Include="MachineRepairDTO.cs" />
+    <Compile Include="MediaDTO.cs" />
+    <Compile Include="OrderDTO.cs" />
+    <Compile Include="OrderGradeDTO.cs" />
+    <Compile Include="OrderGradeSizeDTO.cs" />
+    <Compile Include="OtherExpenseDTO.cs" />
+    <Compile Include="ProductDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequistionDTO.cs" />
+    <Compile Include="SectorDTO.cs" />
+    <Compile Include="SizeDTO.cs" />
+    <Compile Include="StockDTO.cs" />
+    <Compile Include="StockGradeDTO.cs" />
+    <Compile Include="StockGradeSizeDTO.cs" />
+    <Compile Include="StockProductDTO.cs" />
+    <Compile Include="StoreDTO.cs" />
+    <Compile Include="StoreMaizeStockDTO.cs" />
+    <Compile Include="StoreStockDTO.cs" />
+    <Compile Include="StoreGradeSizeDTO.cs" />
+    <Compile Include="SupplyDTO.cs" />
+    <Compile Include="TransactionDTO.cs" />
+    <Compile Include="TransactionSubTypeDTO.cs" />
+    <Compile Include="UserBranchDTO.cs" />
+    <Compile Include="UserBranchManagerDTO.cs" />
+    <Compile Include="WeightNoteDTO.cs" />
+    <Compile Include="WeightNoteValueDTO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

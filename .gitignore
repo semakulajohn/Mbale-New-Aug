@@ -21,3 +21,13 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+
+# build
+[Dd]ebug/
+[Pp]ackages/
+[Rr]elease/
+[Oo]bj/
+[Oo]bj/Debug
+[Bb]in/
+*.dbmdl
+*.jfm

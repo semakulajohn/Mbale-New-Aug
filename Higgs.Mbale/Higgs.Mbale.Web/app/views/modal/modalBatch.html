@@ -1,0 +1,48 @@
+﻿<div class="inmodal" ng-controller="BatchesPickerController">
+    <div class="color-line"></div>
+    <div class="modal-header">
+        <a href="javascript:void(0);" ng-click="cancel()" class="pull-right" rel="tooltip" data-original-title="Cancel"><i class="fa fa-fw fa-times"></i></a>
+        <h4 class="modal-title text-uppercase">Select Batch</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="cms-btn-toolbar margin-bottom-5  noselect">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-info" ng-click="selectBatch()">Select Batch</button>
+            </div>
+        </div>
+        <div class="btn-group  noselect">
+            <a class="btn btn-default btn-sm active">Batches</a>
+        </div>
+        <hr />
+        <div class="row">
+
+            <div class="feature">
+                <span ng-if="loadingSpinner" class="loadingSpinner">
+                    <img src="/images/loading-bars.svg" width="45" height="45" /> Loading...
+                </span>
+                <div class="check-element sample-show-hide alert alert-success animate-show" ng-show="showMessageBatchSelected">
+                    <i class="fa-fw fa fa-check"></i>
+                    <span>Batch has been selected</span>
+                </div>
+                <span ng-show="error" class="help-block error"><i class="fa fa-warning"></i> Please select Batch</span>
+                <div class="clear5"></div>
+
+                <div id="gridData" ui-grid="gridData" ui-grid-selection class="grid"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+            <button type="button" class="btn btn-info" ng-click="selectBatch()">Select Batch</button>
+        </div>
+    </div>
+</div>
+

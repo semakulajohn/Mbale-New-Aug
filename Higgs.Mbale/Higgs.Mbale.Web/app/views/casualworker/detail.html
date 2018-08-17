@@ -1,0 +1,146 @@
+﻿
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+
+    <div ng-include="'/app/views/_common/Breadcrumb.html'"></div>
+
+    <div class="content" ng-controller="CasualWorkerDetailController">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div>
+                        <form name="form" class="form-horizontal ng-pristine ng-valid col-md-12" novalidate unsaved-warning-form>
+
+                            <tabset>
+                                <tab>
+                                    <tab-heading>
+                                        <i class="fa fa-laptop"></i> Casual Worker Detail
+                                    </tab-heading>
+
+
+                                    <div class="panel-body">
+                                        <div class="row">
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Casual Worker Number</h5>
+                                                    <p>{{casualWorker.UniqueNumber}}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>First Name</h5>
+                                                    <p>{{casualWorker.FirstName}}</p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Last Name</h5>
+                                                    <p>{{casualWorker.LastName}}</p>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>NIN Number</h5>
+                                                    <p>{{casualWorker.NINNumber}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>PhoneNumber</h5>
+                                                    <p>{{casualWorker.PhoneNumber}}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Email</h5>
+                                                    <p>{{casualWorker.EmailAddress}}</p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>branch</h5>
+                                                    <p>{{casualWorker.BranchName}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Next Of Keen Number</h5>
+                                                    <p>{{casualWorker.NextOfKeen}}</p>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="col-sm-12">
+                                                    <h5>Address</h5>
+                                                    <p>{{casualWorker.Address}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+
+
+                                            <div class="col-sm-12" style="padding-left: 0px">
+
+
+                                                <div class="hr-line-dashed"></div>
+
+                                              
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </tab>
+
+                            </tabset>
+                            <div class="clear10"></div>
+                            <div class="row">
+                                <button class="btn btn-info" type="submit" ng-click="Cancel()">
+                                    Back
+                                </button>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC41076A-9654-4CFB-AFAF-633FD6953A86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Higgs.Mbale.Models</RootNamespace>
+    <AssemblyName>Higgs.Mbale.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountTransactionActivity.cs" />
+    <Compile Include="Activity.cs" />
+    <Compile Include="ActivityBatchCasual.cs" />
+    <Compile Include="AspNetRole.cs" />
+    <Compile Include="AspNetUser.cs" />
+    <Compile Include="Batch.cs" />
+    <Compile Include="BatchGrade.cs" />
+    <Compile Include="BatchGradeSize.cs" />
+    <Compile Include="BatchOutPut.cs" />
+    <Compile Include="BatchProduct.cs" />
+    <Compile Include="BatchSupply.cs" />
+    <Compile Include="Branch.cs" />
+    <Compile Include="CasualActivity.cs" />
+    <Compile Include="CasualWorker.cs" />
+    <Compile Include="Creditor.cs" />
+    <Compile Include="Debtor.cs" />
+    <Compile Include="Delivery.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="ExcelData.cs" />
+    <Compile Include="Expense.cs" />
+    <Compile Include="ExtensionType.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="FactoryExpense.cs" />
+    <Compile Include="Grade.cs" />
+    <Compile Include="Income.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="LabourCost.cs" />
+    <Compile Include="MachineRepair.cs" />
+    <Compile Include="Media.cs" />
+    <Compile Include="MediaType.cs" />
+    <Compile Include="MultipleSupplies.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderGrade.cs" />
+    <Compile Include="OrderGradeSize.cs" />
+    <Compile Include="OtherExpense.cs" />
+    <Compile Include="PaymentMode.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportSearch.cs" />
+    <Compile Include="Requistion.cs" />
+    <Compile Include="Sector.cs" />
+    <Compile Include="Size.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="StockGrade.cs" />
+    <Compile Include="StockGradeSize.cs" />
+    <Compile Include="StockProduct.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="StoreGrade.cs" />
+    <Compile Include="StoreMaizeStock.cs" />
+    <Compile Include="StoreStock.cs" />
+    <Compile Include="StoreGradeSize.cs" />
+    <Compile Include="Supply.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionSubType.cs" />
+    <Compile Include="TransactionType.cs" />
+    <Compile Include="UserBranch.cs" />
+    <Compile Include="UserBranchManager.cs" />
+    <Compile Include="WeightNote.cs" />
+    <Compile Include="WeightNoteValue.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

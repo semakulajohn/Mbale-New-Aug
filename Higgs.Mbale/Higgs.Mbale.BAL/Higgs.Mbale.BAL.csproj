@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C546D18-800A-4AA9-8300-9F697FC7B064}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Higgs.Mbale.BAL</RootNamespace>
+    <AssemblyName>Higgs.Mbale.BAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Higgs.Mbale.Web\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concrete\AccountTransactionActivityService.cs" />
+    <Compile Include="Concrete\ActivityService.cs" />
+    <Compile Include="Concrete\BatchOutPutService.cs" />
+    <Compile Include="Concrete\BatchService.cs" />
+    <Compile Include="Concrete\BranchService.cs" />
+    <Compile Include="Concrete\CasualActivityService.cs" />
+    <Compile Include="Concrete\CasualWorkerService.cs" />
+    <Compile Include="Concrete\CreditorService.cs" />
+    <Compile Include="Concrete\DebtorService.cs" />
+    <Compile Include="Concrete\DeliveryService.cs" />
+    <Compile Include="Concrete\FactoryExpenseService.cs" />
+    <Compile Include="Concrete\GradeService.cs" />
+    <Compile Include="Concrete\InventoryService.cs" />
+    <Compile Include="Concrete\LabourCostService.cs" />
+    <Compile Include="Concrete\MachineRepairService.cs" />
+    <Compile Include="Concrete\OtherExpenseService.cs" />
+    <Compile Include="Concrete\ReportService.cs" />
+    <Compile Include="Concrete\RequistionService.cs" />
+    <Compile Include="Concrete\StockService.cs" />
+    <Compile Include="Concrete\StoreService.cs" />
+    <Compile Include="Concrete\SupplyService.cs" />
+    <Compile Include="Concrete\TransactionService.cs" />
+    <Compile Include="Concrete\TransactionSubTypeService.cs" />
+    <Compile Include="Interface\IAccountTransactionActivityService.cs" />
+    <Compile Include="Interface\IActivityService.cs" />
+    <Compile Include="Interface\IBatchOutPutService.cs" />
+    <Compile Include="Interface\ICasualActivityService.cs" />
+    <Compile Include="Interface\ICreditorService.cs" />
+    <Compile Include="Interface\IDebtorService.cs" />
+    <Compile Include="Interface\IFactoryExpenseService.cs" />
+    <Compile Include="Interface\IGradeService.cs" />
+    <Compile Include="Interface\IInventoryService.cs" />
+    <Compile Include="Interface\ILabourCostService.cs" />
+    <Compile Include="Interface\IMachineRepairService.cs" />
+    <Compile Include="Interface\IOtherExpenseService.cs" />
+    <Compile Include="Interface\IReportService.cs" />
+    <Compile Include="Interface\IRequistionService.cs" />
+    <Compile Include="Interface\IStatusService.cs" />
+    <Compile Include="Concrete\OrderService.cs" />
+    <Compile Include="Concrete\ProductService.cs" />
+    <Compile Include="Concrete\SectorService.cs" />
+    <Compile Include="Concrete\StatusService.cs" />
+    <Compile Include="Concrete\UserService.cs" />
+    <Compile Include="Interface\IBatchService.cs" />
+    <Compile Include="Interface\IBranchService.cs" />
+    <Compile Include="Interface\ICasualWorkerService.cs" />
+    <Compile Include="Interface\IDeliveryService.cs" />
+    <Compile Include="Interface\IOrderService.cs" />
+    <Compile Include="Interface\IProductService.cs" />
+    <Compile Include="Interface\ISectorService.cs" />
+    <Compile Include="Interface\IStockService.cs" />
+    <Compile Include="Interface\IStoreService.cs" />
+    <Compile Include="Interface\ISupplyService.cs" />
+    <Compile Include="Interface\ITransactionService.cs" />
+    <Compile Include="Interface\ITransactionSubTypeService.cs" />
+    <Compile Include="Interface\IUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Higgs.Mbale.DAL\Higgs.Mbale.DAL.csproj">
+      <Project>{43cfa7a7-4325-48fd-9efb-88a59e13fcd3}</Project>
+      <Name>Higgs.Mbale.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Higgs.Mbale.DTO\Higgs.Mbale.DTO.csproj">
+      <Project>{1aac90ae-3354-4f67-9e4a-68899ec7c5be}</Project>
+      <Name>Higgs.Mbale.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Higgs.Mbale.EF\Higgs.Mbale.EF.csproj">
+      <Project>{07b463f6-6bec-4821-921d-84c9ed1dab66}</Project>
+      <Name>Higgs.Mbale.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Higgs.Mbale.Helpers\Higgs.Mbale.Helpers.csproj">
+      <Project>{7e707caf-ff8a-4e25-9edc-b47c75602f1c}</Project>
+      <Name>Higgs.Mbale.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Higgs.Mbale.Models\Higgs.Mbale.Models.csproj">
+      <Project>{dc41076a-9654-4cfb-afaf-633fd6953a86}</Project>
+      <Name>Higgs.Mbale.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

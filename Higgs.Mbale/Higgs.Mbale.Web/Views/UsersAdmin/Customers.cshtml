@@ -1,0 +1,375 @@
+﻿@model PagedList.IPagedList<Higgs.Mbale.Models.AspNetUser>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="header" ng-include="'/app/views/_common/header.html'"></div>
+
+
+<aside id="menu" ng-include="'/app/views/_common/navigation.html'"></aside>
+
+<div id="wrapper">
+    @if (Request.IsAuthenticated && (User.IsInRole("admin")))
+    {
+        <div class="content">
+
+
+            <div id="page-title">
+                <h4 class="page-header addon">Accounts</h4>
+            </div>
+
+            <ol class="breadcrumb">
+                <li><a href="/#/">Dashboard</a></li>
+                <li>Customers</li>
+            </ol>
+
+            <div class="clear0"></div>
+            <hr />
+
+            <tabset>
+
+                <tab>
+                    <tab-heading>
+                        <input name="submit" type="submit" id="parent" value="Admins" onclick="location.href='@Url.Action("Index", "UsersAdmin")'" />
+                    </tab-heading>
+                    <div class="panel panel-default panel-left">
+                        <div class="panel-body">
+                            <p>
+                                <a href="/UsersAdmin/create" class="btn btn-default">
+                                    <i class="fa fa-fw fa-user"></i>
+                                    Add a new admin
+                                </a>
+                            </p>
+
+                            @using (Html.BeginForm("Index", "UsersAdmin", FormMethod.Get))
+                            {
+                                <span>Search for a user using his/her username, first name, last name or email address.</span>
+                                <p>
+                                    Search User: @Html.TextBox("searchData", ViewBag.FilterValue as string)
+                                    <input type="submit" value="Find" />
+                                </p>
+
+                            }
+
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.ActionLink("UserName", "Index", new { sortingOrder = ViewBag.SortingUserName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("First Name", "Index", new { sortingOrder = ViewBag.SortingFirstName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Last Name", "Index", new { sortingOrder = ViewBag.SortingLastName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Email Address", "Index", new { sortingOrder = ViewBag.SortingEmailAddress, Filter_Value = ViewBag.FilterValue })
+
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Phone Number", "Index", new { sortingOrder = ViewBag.SortingPhoneNumber, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>
+
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                            <br />
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                            @Html.PagedListPager(Model, Page_No => Url.Action("Index",
+                    new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+                        </div>
+                    </div>
+
+                </tab>
+                <tab>
+                    <tab-heading>
+                        <input name="submit" type="submit" id="parent" value="Suppliers" onclick="location.href='@Url.Action("Suppliers", "UsersAdmin", new { submit = "agent" })'" />
+                    </tab-heading>
+                    <div class="panel panel-default panel-left">
+                        <div class="panel-body">
+                            <p>
+                                <a href="/UsersAdmin/create" class="btn btn-default">
+                                    <i class="fa fa-fw fa-user"></i>
+                                    Add a new supplier
+                                </a>
+                            </p>
+
+                            @using (Html.BeginForm("Suppliers", "UsersAdmin", FormMethod.Get))
+                            {
+                                <span>Search for a user using his/her username, first name, last name or email address.</span>
+                                <p>
+                                    Search User: @Html.TextBox("searchData", ViewBag.FilterValue as string)
+                                    <input type="submit" value="Find" />
+                                </p>
+
+                            }
+
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.ActionLink("UserName", "Index", new { sortingOrder = ViewBag.SortingUserName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("First Name", "Index", new { sortingOrder = ViewBag.SortingFirstName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Last Name", "Index", new { sortingOrder = ViewBag.SortingLastName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Email Address", "Index", new { sortingOrder = ViewBag.SortingEmailAddress, Filter_Value = ViewBag.FilterValue })
+
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Phone Number", "Index", new { sortingOrder = ViewBag.SortingPhoneNumber, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>
+
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                            <br />
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                            @Html.PagedListPager(Model, Page_No => Url.Action("Suppliers",
+                    new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+                        </div>
+                    </div>
+
+                </tab>
+
+                <tab class="active">
+                    <tab-heading>
+                        <input name="submit" type="submit" id="parent" value="Customers" onclick="location.href='@Url.Action("Customers", "UsersAdmin", new { submit = "customer" })'" />
+                    </tab-heading>
+                    <div class="panel panel-default panel-left">
+                        <div class="panel-body">
+                            <p>
+                                <a href="/UsersAdmin/create" class="btn btn-default">
+                                    <i class="fa fa-fw fa-user"></i>
+                                    Add a new customer
+                                </a>
+                            </p>
+
+                            @using (Html.BeginForm("Customers", "UsersAdmin", FormMethod.Get))
+                            {
+                                <span>Search for a user using his/her username, first name, last name or email address.</span>
+                                <p>
+                                    Search User: @Html.TextBox("searchData", ViewBag.FilterValue as string)
+                                    <input type="submit" value="Find" />
+                                </p>
+
+                            }
+
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.ActionLink("UserName", "Index", new { sortingOrder = ViewBag.SortingUserName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("First Name", "Index", new { sortingOrder = ViewBag.SortingFirstName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Last Name", "Index", new { sortingOrder = ViewBag.SortingLastName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Email Address", "Index", new { sortingOrder = ViewBag.SortingEmailAddress, Filter_Value = ViewBag.FilterValue })
+
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Phone Number", "Index", new { sortingOrder = ViewBag.SortingPhoneNumber, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>
+
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                            <br />
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                            @Html.PagedListPager(Model, Page_No => Url.Action("Customers",
+                    new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+                        </div>
+                    </div>
+
+                </tab>
+
+                <tab>
+                    <tab-heading>
+                        <input name="submit" type="submit" id="parent" value="BranchManagers" onclick="location.href='@Url.Action("BranchManagers", "UsersAdmin", new { submit = "branchManager" })'" />
+                    </tab-heading>
+                    <div class="panel panel-default panel-left">
+                        <div class="panel-body">
+                            <p>
+                                <a href="/UsersAdmin/create" class="btn btn-default">
+                                    <i class="fa fa-fw fa-user"></i>
+                                    Add a new Branch manager
+                                </a>
+                            </p>
+
+                            @using (Html.BeginForm("BranchManager", "UsersAdmin", FormMethod.Get))
+                            {
+                                <span>Search for a user using his/her username, first name, last name or email address.</span>
+                                <p>
+                                    Search User: @Html.TextBox("searchData", ViewBag.FilterValue as string)
+                                    <input type="submit" value="Find" />
+                                </p>
+
+                            }
+
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.ActionLink("UserName", "Index", new { sortingOrder = ViewBag.SortingUserName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("First Name", "Index", new { sortingOrder = ViewBag.SortingFirstName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Last Name", "Index", new { sortingOrder = ViewBag.SortingLastName, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Email Address", "Index", new { sortingOrder = ViewBag.SortingEmailAddress, Filter_Value = ViewBag.FilterValue })
+
+                                    </th>
+                                    <th>
+                                        @Html.ActionLink("Phone Number", "Index", new { sortingOrder = ViewBag.SortingPhoneNumber, Filter_Value = ViewBag.FilterValue })
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>
+
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                            <br />
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                            @Html.PagedListPager(Model, Page_No => Url.Action("Suppliers",
+                    new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+                        </div>
+                    </div>
+
+                </tab>
+
+            </tabset>
+
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="homer">
+<head>
+
+    <title>@ViewBag.Title - MIGM</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/bundles/app_styles")
+    <link rel="stylesheet" href="/app/styles/isteven-multi-select.css" />
+
+</head>
+<body class="blank" landing-scrollspy tour backdrop="true">
+    <div class="splash">
+        <div class="splash-title">
+            <img src="/images/loading-bars.svg" width="64" height="64" />
+        </div>
+    </div>
+
+    @RenderBody()
+
+
+    <!--  @Scripts.Render("~/bundles/jquery")
+         @Scripts.Render("~/bundles/bootstrap")
+         @RenderSection("scripts", required: false)
+
+        -->
+    @Scripts.Render("~/bundles/bower_components")
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @Scripts.Render("~/bundles/app_scripts")
+
+    <script src="~/js/es5-shim.min.js"></script>
+    <script src="~/js/es5-sham.min.js"></script>
+
+</body>
+</html>
+>
+
